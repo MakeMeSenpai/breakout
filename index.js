@@ -1,14 +1,20 @@
-/* Hello World! using eslint.
- this is just tester code for lint
- but this is where our breakout code
- will be! */
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-const hello = "hello";
-const goodbye = "word";
+ctx.beginPath();
+ctx.rect(20, 40, 50, 50);
+ctx.fillStyle = "#FF0000";
+ctx.fill();
+ctx.closePath();
 
-function star() {
-  const world = `${hello} ${goodbye}`;
-  return world;
-}
+ctx.beginPath();
+ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
+ctx.fillStyle = "green";
+ctx.fill();
+ctx.closePath();
 
-star();
+ctx.beginPath();
+ctx.rect(160, 10, 100, 40);
+ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+ctx.stroke();
+ctx.closePath();
