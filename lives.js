@@ -1,4 +1,6 @@
-import * as b from "background.js";
+import { Background } from "background.js";
+
+const b = Background();
 
 class Lives {
   constructor(lives = 3, color) {
@@ -12,3 +14,10 @@ class Lives {
     b.ctx.fillText(`Lives: ${this.lives}`, b.canvas.width - 65, 20);
   }
 }
+
+function test() {
+  const one = Lives();
+  one.draw();
+}
+
+test();

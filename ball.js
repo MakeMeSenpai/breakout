@@ -1,4 +1,6 @@
-import * as b from "background.js";
+import { Background } from "background.js";
+
+const b = Background();
 
 class Ball {
   constructor(x = 0, y = 0, dx = 2, dy = -2, radius = 10, color = b.objectColor) {
@@ -23,3 +25,11 @@ class Ball {
     this.y += this.dy;
   }
 }
+
+function test() {
+  const one = Ball();
+  one.draw();
+  one.move();
+}
+
+test();

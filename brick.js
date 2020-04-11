@@ -10,3 +10,10 @@ class Brick {
     this.columnCount = columnCount;
   }
 }
+
+function test() {
+  const one = Brick();
+  return one;
+}
+
+test();

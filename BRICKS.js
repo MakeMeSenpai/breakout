@@ -1,11 +1,14 @@
-import * as b from "background.js";
-import Brick from "brick.js";
+import { Background } from "background.js";
+import { Brick } from "brick.js";
+
+const b = Background();
+
 
 class BRICKS extends Brick {
   constructor(bricks = []) {
     super(Brick);
     this.bricks = bricks;
-  };
+  }
 
   rowsAndColumns() {
     for (let c = 0; c < this.ColumnCount; c += 1) {
@@ -39,3 +42,10 @@ class BRICKS extends Brick {
     }
   }
 }
+
+function test() {
+  const one = BRICKS();
+  one.draw();
+}
+
+test();

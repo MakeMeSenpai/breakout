@@ -1,10 +1,11 @@
-import * as b from "background.js";
-import Ball from "ball.js";
-import Paddle from "paddle.js";
-import BRICKS from "BRICKS.js";
-import Score from "score.js";
-import Lives from "lives.js";
+import { Background } from "background.js";
+import { Ball } from "ball.js";
+import { Paddle } from "paddle.js";
+import { BRICKS } from "BRICKS.js";
+import { Score } from "score.js";
+import { Lives } from "lives.js";
 
+const b = Background();
 const { canvas } = b.canvas;
 
 class Game {
