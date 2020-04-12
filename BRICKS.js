@@ -4,10 +4,11 @@ import { Brick } from "brick.js";
 const b = Background();
 
 
-class BRICKS extends Brick {
+class Bricks extends Brick {
   constructor(bricks = []) {
     super(Brick);
     this.bricks = bricks;
+    this.init();
   }
 
   rowsAndColumns() {
@@ -44,7 +45,7 @@ class BRICKS extends Brick {
 }
 
 function test() {
-  const one = BRICKS();
+  const one = Bricks();
   one.draw();
 }
 

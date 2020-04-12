@@ -1,7 +1,7 @@
 import { Background } from "background.js";
 import { Ball } from "ball.js";
 import { Paddle } from "paddle.js";
-import { BRICKS } from "BRICKS.js";
+import { Bricks } from "BRICKS.js";
 import { Score } from "score.js";
 import { Lives } from "lives.js";
 
@@ -9,7 +9,7 @@ const b = Background();
 const { canvas } = b.canvas;
 
 class Game {
-  constructor(ball = Ball(), paddle = Paddle(), bricks = BRICKS(),
+  constructor(ball = Ball(), paddle = Paddle(), bricks = Bricks(),
     score = Score(), lives = Lives()) {
     this.ball = ball;
     this.paddle = paddle;
