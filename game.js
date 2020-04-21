@@ -1,12 +1,10 @@
-import { Background } from "background.js";
-import { Ball } from "ball.js";
-import { Paddle } from "paddle.js";
-import { Bricks } from "BRICKS.js";
-import { Score } from "score.js";
-import { Lives } from "lives.js";
+import { canvas, ctx } from "./constants";
+import Ball from "./ball";
+import Paddle from "./paddle";
+import Bricks from "./bricks";
+import Score from "./score";
+import Lives from "./lives";
 
-const b = Background();
-const { canvas } = b.canvas;
 
 class Game {
   constructor(ball = Ball(), paddle = Paddle(), bricks = Bricks(),
@@ -69,7 +67,7 @@ class Game {
   }
 
   draw() {
-    b.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.bricks.draw();
     this.ball.draw();
     this.paddle.draw();
@@ -84,5 +82,4 @@ class Game {
   }
 }
 
-const play = Game();
-play();
+export default Game;

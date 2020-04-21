@@ -1,6 +1,5 @@
-import * as b from "background.js";
+import { canvas, ctx, color } from "./constants";
 
-const { canvas } = b;
 
 /* eslint-disable no-use-before-define */
 document.addEventListener("keydown", keyDownHandler, false);
@@ -10,13 +9,14 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 
 class Paddle {
   constructor(height = 10, width = 75, start = (canvas.width - width) / 2,
-    x = 0, rightPressed = false, leftPressed = false) {
+    x = 0, rightPressed = false, leftPressed = false, color = color) {
     this.height = height;
     this.width = width;
     this.start = start;
     this.x = x;
     this.rightPressed = rightPressed;
     this.leftPressed = leftPressed;
+    this.color = color;
   }
 
   keyDownHandler(e) {
@@ -43,11 +43,11 @@ class Paddle {
   }
 
   drawPaddle() {
-    b.ctx.beginPath();
-    b.ctx.rect(this.x, canvas.height - this.height, this.width, this.height);
-    b.ctx.fillStyle = this.color;
-    b.ctx.fill();
-    b.ctx.closePath();
+    ctx.beginPath();
+    ctx.rect(this.x, canvas.height - this.height, this.width, this.height);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.closePath();
   }
 
   movePaddle() {
@@ -58,3 +58,5 @@ class Paddle {
     }
   }
 }
+
+export default Paddle;

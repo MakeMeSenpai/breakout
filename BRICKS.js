@@ -1,7 +1,4 @@
-import { Background } from "background.js";
-import { Brick } from "brick.js";
-
-const b = Background();
+import Brick from "./brick";
 
 
 class Bricks extends Brick {
@@ -24,7 +21,7 @@ class Bricks extends Brick {
     }
   }
 
-  draw() {
+  draw(ctx) {
     for (let c = 0; c < this.ColumnCount; c += 1) {
       for (let r = 0; r < this.RowCount; r += 1) {
         if (this.bricks[c][r].status === 1) {
@@ -32,21 +29,16 @@ class Bricks extends Brick {
           const brickY = (c * this.height + this.padding) + this.offsetTop;
           this.bricks[c][r].x = brickX;
           this.bricks[c][r].y = brickY;
-          b.ctx.beginPath();
-          b.ctx.rect(brickX, brickY, this.width, this.height);
-          b.ctx.fill();
-          b.fillStyle = this.color;
-          b.ctx.fill();
-          b.ctx.closePath();
+          ctx.beginPath();
+          ctx.rect(brickX, brickY, this.width, this.height);
+          ctx.fill();
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.closePath();
         }
       }
     }
   }
 }
 
-function test() {
-  const one = Bricks();
-  one.draw();
-}
-
-test();
+export default Bricks();

@@ -11,9 +11,4 @@ class Brick {
   }
 }
 
-function test() {
-  const one = Brick();
-  return one;
-}
-
-test();
+export default Brick;

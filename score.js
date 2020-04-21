@@ -1,23 +1,17 @@
-import { Background } from "background.js";
+import { ctx, color } from "./constants";
 
-const b = Background();
 
 class Score {
-  constructor(points = 0, color = "red") {
+  constructor(points = 0, color = color) {
     this.points = points;
     this.color = color;
   }
 
   draw() {
-    b.ctx.font = "16px Arial";
-    b.ctx.fillStyle = this.color;
-    b.ctx.fillText(`Score: ${this.points}`, 8, 20);
+    ctx.font = "16px Arial";
+    ctx.fillStyle = this.color;
+    ctx.fillText(`Score: ${this.points}`, 8, 20);
   }
 }
 
-function test() {
-  const one = Score();
-  one.draw();
-}
-
-test();
+export default Score;

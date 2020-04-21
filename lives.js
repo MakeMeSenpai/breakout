@@ -1,23 +1,17 @@
-import { Background } from "background.js";
+import { canvas, ctx, color } from "./constants";
 
-const b = Background();
 
 class Lives {
-  constructor(lives = 3, color) {
+  constructor(lives = 3, color = color) {
     this.lives = lives;
     this.color = color;
   }
 
   draw() {
-    b.ctx.font = "16px Arial";
-    b.ctx.fillStyle = this.color;
-    b.ctx.fillText(`Lives: ${this.lives}`, b.canvas.width - 65, 20);
+    ctx.font = "16px Arial";
+    ctx.fillStyle = this.color;
+    ctx.fillText(`Lives: ${this.lives}`, canvas.width - 65, 20);
   }
 }
 
-function test() {
-  const one = Lives();
-  one.draw();
-}
-
-test();
+export default Lives;
