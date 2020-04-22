@@ -1,8 +1,8 @@
-import { ctx, color } from "./constants";
+import { ctx, colour } from "./constants";
 
 
 class Score {
-  constructor(points = 0, color = color) {
+  constructor(points = 0, color = colour) {
     this.points = points;
     this.color = color;
   }

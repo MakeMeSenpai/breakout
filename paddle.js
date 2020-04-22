@@ -1,15 +1,15 @@
-import { canvas, ctx, color } from "./constants";
+import { canvas, ctx, colour } from "./constants";
 
 
 /* eslint-disable no-use-before-define */
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
-document.addEventListener("mousemove", mouseMoveHandler, false);
+const keyDownHandler = document.addEventListener("keydown", keyDownHandler, false);
+const keyUpHandler = document.addEventListener("keyup", keyUpHandler, false);
+const mouseMoveHandler = document.addEventListener("mousemove", mouseMoveHandler, false);
 /* eslint-enable no-use-before-define */
 
 class Paddle {
   constructor(height = 10, width = 75, start = (canvas.width - width) / 2,
-    x = 0, rightPressed = false, leftPressed = false, color = color) {
+    x = 0, rightPressed = false, leftPressed = false, color = colour) {
     this.height = height;
     this.width = width;
     this.start = start;

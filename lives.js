@@ -1,8 +1,8 @@
-import { canvas, ctx, color } from "./constants";
+import { canvas, ctx, colour } from "./constants";
 
 
 class Lives {
-  constructor(lives = 3, color = color) {
+  constructor(lives = 3, color = colour) {
     this.lives = lives;
     this.color = color;
   }

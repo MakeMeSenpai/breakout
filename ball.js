@@ -1,8 +1,8 @@
-import { color, PI2 } from "./constants";
+import { colour, PI2 } from "./constants";
 
 
 class Ball {
-  constructor(x = 0, y = 0, dx = 2, dy = -2, radius = 10, color = color) {
+  constructor(x = 0, y = 0, dx = 2, dy = -2, radius = 10, color = colour) {
     this.x = x;
     this.y = y;
     this.dx = dx;
