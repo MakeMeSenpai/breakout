@@ -7,8 +7,8 @@ import Lives from "./lives";
 
 
 class Game {
-  constructor(ball = Ball(), paddle = Paddle(), bricks = Bricks(),
-    score = Score(), lives = Lives()) {
+  constructor(ball = new Ball(), paddle = new Paddle(), bricks = new Bricks(),
+    score = new Score(), lives = new Lives()) {
     this.ball = ball;
     this.paddle = paddle;
     this.bricks = bricks;

@@ -1,3 +1,4 @@
 import Game from "./game";
 
-Game(); // new Game();
+const game = new Game();
+game.draw();
