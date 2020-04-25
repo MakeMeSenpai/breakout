@@ -69,7 +69,7 @@ class Game {
   draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     this.bricks.draw();
-    this.ball.draw();
+    this.ball.draw(ctx);
     this.paddle.draw();
     this.score.draw();
     this.lives.draw();
