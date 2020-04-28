@@ -32,7 +32,8 @@ class Game {
       paddleWidth, paddleHeight, colour);
 
     // Bricks Class
-    this.brick = new Brick(brickColumnCount, brickRowCount);
+    this.brick = new Brick(brickColumnCount, brickRowCount,
+      brickWidth, brickHeight, colour);
     this.bricks = new Bricks(brickColumnCount, brickRowCount,
       brickWidth, brickHeight, brickPadding,
       brickOffsetLeft, brickOffsetTop, colour);
@@ -63,7 +64,7 @@ class Game {
 
   resetBallAndPaddle() {
     this.ball.reset(canvas);
-    this.sprite.reset(paddleXStart);
+    this.paddle.reset(paddleXStart);
   }
 
   collisionDetection() {
@@ -150,7 +151,7 @@ class Game {
     this.lives.render(ctx);
     this.collisionDetection();
     this.ball.move();
-    this.paddle.move();
+    this.movePaddle();
     this.collisionWithCanvasAndPaddle();
     // requestAnimationFrame(this.draw.bind(this));
     // Google: JavaScript This is confusing
