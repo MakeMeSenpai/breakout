@@ -31,4 +31,4 @@ class Ball extends Sprite {
   }
 }
 
-export default Ball();
+export default Ball;

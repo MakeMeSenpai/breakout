@@ -39,4 +39,4 @@ class Bricks {
   }
 }
 
-export default Bricks();
+export default Bricks;

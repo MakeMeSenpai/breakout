@@ -7,4 +7,4 @@ class Brick extends Sprite {
   }
 }
 
-export default Brick();
+export default Brick;

@@ -16,4 +16,4 @@ class Lables extends Sprite {
   }
 }
 
-export default Lables();
+export default Lables;
