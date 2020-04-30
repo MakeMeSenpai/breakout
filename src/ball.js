@@ -1,8 +1,12 @@
+// Takes in our sprite class
 import Sprite from "./sprite";
 
 
+// creates Sprite's child class, Ball
 class Ball extends Sprite {
+  // Ball's Params
   constructor(x, y, dx = 2, dy = -1, radius = 10, color) {
+    // Sprite's params
     super(x, y, radius * 2, radius * 2, color);
     this.dx = dx;
     this.dy = dy;
@@ -10,6 +14,7 @@ class Ball extends Sprite {
     this.PI2 = Math.PI * 2;
   }
 
+  // moves our ball, using sprite moveBy
   move() {
     this.moveBy(this.dx, this.dy);
   }
@@ -23,6 +28,7 @@ class Ball extends Sprite {
     ctx.closePath();
   }
 
+  // resets Ball's position
   reset(canvas) {
     this.x = canvas.width / 2;
     this.y = canvas.height - 30;
@@ -31,4 +37,5 @@ class Ball extends Sprite {
   }
 }
 
+// exports our Ball class
 export default Ball;

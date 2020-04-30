@@ -1,3 +1,4 @@
+// imports all our modules into one main file
 import {
   canvas,
   ctx,
@@ -21,7 +22,7 @@ import Brick from "./brick";
 import Bricks from "./bricks";
 import Lables from "./lables";
 
-
+// creates our main opperations class, Game (which is kinda like glue)
 class Game {
   constructor() {
     // Ball class
@@ -62,11 +63,13 @@ class Game {
     }), false);
   }
 
+  // resets our ball and Paddle
   resetBallAndPaddle() {
     this.ball.reset(canvas);
     this.paddle.reset(paddleXStart);
   }
 
+  // creates win conditions and tests collisions with bricks
   collisionDetection() {
     for (let c = 0; c < this.bricks.cols; c += 1) {
       for (let r = 0; r < this.bricks.rows; r += 1) {
@@ -89,6 +92,7 @@ class Game {
     }
   }
 
+  // controls the movement of our paddle
   movePaddle() {
     if (this.rightPressed && this.x < canvas.width - this.width) {
       this.paddle.moveBy(7, 0);
@@ -97,6 +101,7 @@ class Game {
     }
   }
 
+  // creates lose conditions and tests collisions with canvas/paddle
   collisionWithCanvasAndPaddle() {
     if (this.ball.x + this.ball.dx > canvas.width - this.ball.radius
       || this.ball.x + this.ball.dx < this.ball.radius) {
@@ -111,6 +116,7 @@ class Game {
         this.lives.value -= 1;
         if (this.lives.value < 1) {
           alert("GAME OVER");
+          this.lives = 3;
           document.location.reload();
         } else {
           this.resetBallAndPaddle();
@@ -119,6 +125,7 @@ class Game {
     }
   }
 
+  // tests if the keys are held down/pressed
   keyDownHandler(e) {
     if (e.key === 39) {
       this.rightPressed = true;
@@ -127,6 +134,7 @@ class Game {
     }
   }
 
+  // tests if the keys are up/not pressed
   keyUpHandler(e) {
     if (e.key === 39) {
       this.rightPressed = false;
@@ -135,6 +143,7 @@ class Game {
     }
   }
 
+  // controls our paddle using the mouse
   mouseMoveHandler(e) {
     const relativeX = e.clientX - canvas.offsetLeft;
     if (relativeX > 0 && relativeX < canvas.width) {
@@ -142,13 +151,19 @@ class Game {
     }
   }
 
+  // displays our game and runs necessary functions
   draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // creates our canvas and colors it's background
+    ctx.rect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "lightgreen";
+    ctx.fill();
+    // creates our assests
     this.bricks.render(ctx);
     this.ball.render(ctx);
     this.paddle.render(ctx);
     this.score.render(ctx);
     this.lives.render(ctx);
+    // runs our functions for gameplay
     this.collisionDetection();
     this.ball.move();
     this.movePaddle();
@@ -161,4 +176,5 @@ class Game {
   }
 }
 
+// sends our game to index.js
 export default Game;

@@ -1,6 +1,7 @@
+// import our Brick class
 import Brick from "./brick";
 
-
+// creates our Bricks class ***remember the 's'***
 class Bricks {
   constructor(cols, rows, width, height, padding, OffsetTop, OffsetLeft, color) {
     this.cols = cols;
@@ -16,17 +17,26 @@ class Bricks {
     this.init();
   }
 
+  // orients our new bricks in their respective positions
   init() {
     for (let c = 0; c < this.cols; c += 1) {
       this.bricks[c] = [];
       for (let r = 0; r < this.rows; r += 1) {
         const brickX = (c * (this.width + this.padding)) + this.OffsetLeft;
         const brickY = (r * (this.height + this.padding)) + this.OffsetTop;
-        this.bricks[c][r] = new Brick(brickX, brickY, this.width, this.height, this.color);
+        if (c % 2 === 0) {
+          this.bricks[c][r] = new Brick(brickX, brickY, this.width + (c * 2.5),
+            this.height + (r * 2.5), this.color);
+        } else if (r % 2 === 0) {
+          this.bricks[c][r] = new Brick(brickX, brickY, this.width, this.height, "pink");
+        } else {
+          this.bricks[c][r] = new Brick(brickX, brickY, this.width, this.height, "yellow");
+        }
       }
     }
   }
 
+  // draws our bricks
   render(ctx) {
     for (let c = 0; c < this.cols; c += 1) {
       for (let r = 0; r < this.rows; r += 1) {
@@ -39,4 +49,5 @@ class Bricks {
   }
 }
 
+// exports Bricks class 
 export default Bricks;
