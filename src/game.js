@@ -73,9 +73,9 @@ class Game {
         const brick = this.bricks.bricks[c][r];
         if (brick.status === 1) {
           if (this.ball.x > brick.x
-            && this.ball.x < brick.x + this.bricksWidth
+            && this.ball.x < brick.x + brick.width
             && this.ball.y > brick.y
-            && this.ball.y < brick.y + this.bricksHeight) {
+            && this.ball.y < brick.y + brick.height) {
             this.ball.dy = -this.ball.dy;
             brick.status = 0;
             this.score.value += 1;
@@ -91,9 +91,9 @@ class Game {
 
   movePaddle() {
     if (this.rightPressed && this.x < canvas.width - this.width) {
-      this.moveBy(7, 0);
+      this.paddle.moveBy(7, 0);
     } else if (this.leftPressed && this.x > 0) {
-      this.moveBy(-7, 0);
+      this.paddle.moveBy(-7, 0);
     }
   }
 
@@ -137,8 +137,8 @@ class Game {
 
   mouseMoveHandler(e) {
     const relativeX = e.clientX - canvas.offsetLeft;
-    if (this.relativeX > 0 && this.relativeX < canvas.width) {
-      this.moveTo(relativeX - this.width / 2, paddleYStart);
+    if (relativeX > 0 && relativeX < canvas.width) {
+      this.paddle.moveTo(relativeX - this.paddle.width / 2, paddleYStart);
     }
   }
 

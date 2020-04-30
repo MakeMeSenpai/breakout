@@ -1,7 +1,7 @@
 import colour from "./constants";
 
 class Sprite {
-  constuctor(x = 0, y = 0, width = 10, height = 10, color = colour) {
+  constructor(x = 0, y = 0, width = 10, height = 10, color = colour) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -13,6 +13,7 @@ class Sprite {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = this.color;
+    ctx.fill();
     ctx.closePath();
   }
 
